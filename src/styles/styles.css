@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+html, body, div {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+body{
+  font-family: Helvetica, 'Roboto', Arial, sans-serif;
+  overflow: auto;
+  background-color: var(--mainBg);
+  background-attachment: fixed;
+}
+/*constants*/
+body{
+  --mainBg: #ffffff; 
+  --blue: #2F80ED;
+  --midBlue: #42A5F5;
+  --lightBlue: rgba(47, 128, 237, 0.16);
+  --grey: #828282;
+  --lightGrey: rgba(130, 130, 130, 0.16);
+  --black: #000000;
+  --lightBlack: #333333;
+
+  --error: #FF1744;
+  --cart-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+* {
+  box-sizing: border-box;
+}
+input:focus, button:focus{
+  outline: none;
+}
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0px 1000px white inset;
+}
+/* containers */
+.root-wrapper {
+  width: 100%; height: 100vh;
+  overflow: hidden;
+}
+.header {
+  float:left;
+  width: 80px; height: 100%;
+  display: flex; flex-direction: column; justify-content: space-between;
+  background-color: var(--blue);
+}
+.main-wrapper {
+  width: calc(100% - 80px); height: 100%;
+  overflow-y: scroll;
+  display: inline-block;
+}
+.content-wrapper { width: 100%; padding: 16px; }
+.table-wrapper { width: 100%; }
+
+.material-icons { cursor: pointer; }
+
+.add-form-row {
+  display: flex;
+  justify-content: space-between;
+}
+.add-form-col {
+  display: flex;
+  /*flex: 1;*/
+  margin: 0px 4px;
+  width: 50%;
+}
+.add-form-toggle {
+  font-weight: bold;
+  padding: 32px 0 16px;
+  max-width: 50%;
+  width: 256px;
+  color: rgba(0,0,0,0.3);
+}
+.add-form-toggle .w-toggle {
+  max-width: 150px;
+}
+.section-title {
+  display: flex;
+  justify-content: space-between;
+  padding: 16px;
+  margin-top: 32px;
+  margin-bottom: 16px;
+  font-size: 24px;
+  color: black;
+  font-weight: bold;
+}
+.section-button {
+  padding: 16px;
+}
+.modal-dialog {
+  padding: 0 !important;
+  margin-top: 5vh !important;
+  height: 90vh !important;
+}
+.dialog-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.columns { display: flex; justify-content: space-between; }
+.col { display: flex; flex: 1; }
+
+/*.w-textfield { padding: 2px 0px; }*/
+/*.w-selectfield { padding: 2px 0px; }*/
+
+/*styles for mobile browsers smaller than 480px; (iPhone) */
+@media only screen and (max-device-width:480px){
+  /*not match page*/
+  .not-found{
+    width: 100%;
+    padding: 16px;
+  }
+  .not-found > div:first-child{
+    font-size: 48px;
+  }
+}
+

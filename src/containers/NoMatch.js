@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom'
 
-import RaisedButton from 'material-ui/RaisedButton';
-
 class _NoMatch extends Component {
   
   componentDidUpdate() {}
@@ -14,12 +12,8 @@ class _NoMatch extends Component {
     return (
       <div className="not-found">
         <div>Whoops!</div>
-        <p>
-          Эта страница неизвестна или не существует
-        </p>
-        <Link to="/">
-          <RaisedButton className="orangeBtn" label="Перейти на главную" primary={true} />
-        </Link>
+        <p>Эта страница неизвестна или не существует</p>
+        <a href="/"> на главную </a>
       </div>
     )
   }

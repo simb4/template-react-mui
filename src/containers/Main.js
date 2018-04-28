@@ -16,12 +16,8 @@ class _Main extends Component {
     return (
       <Router>
         <Switch>
-          <AuthRoute path="/login" component={Login}
-            {...isLoggedIn}/>
-
-          <UserRoute exact path="/"
-            component={<h3>Hello world! </h3>} {...isLoggedIn}/>
-
+          <AuthRoute path="/login" component={Login} {...isLoggedIn}/>
+          <UserRoute exact path="/" component={<h3>Hello world! </h3>} {...isLoggedIn}/>
           <HeaderRoute name="not-found" component={NoMatch} />
         </Switch>
       </Router>

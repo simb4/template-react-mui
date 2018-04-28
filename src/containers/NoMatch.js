@@ -13,7 +13,7 @@ class _NoMatch extends Component {
       <div className="not-found">
         <div>Whoops!</div>
         <p>Эта страница неизвестна или не существует</p>
-        <a href="/"> на главную </a>
+        <Link to="/"> на главную </Link>
       </div>
     )
   }

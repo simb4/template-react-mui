@@ -1,10 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { Link } from 'react-router-dom'
-
-import ProfileIcon from './ProfileIcon'
-import TabIcon from './TabIcon'
-import * as authActions from '../../actions/authActions'
+// import { Link } from 'react-router-dom'
+// import * as authActions from '../../actions/authActions'
 
 import './header.css';
 

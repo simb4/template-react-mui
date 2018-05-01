@@ -5,9 +5,9 @@ import App from './containers/App';
 import configureStore from './configureStore';
 
 const Root = ({ store }) => (
-	<Provider store={configureStore}>
-    	<App />
-    </Provider>
+  <Provider store={store}>
+    <App />
+  </Provider>
 );
 
 const store = configureStore();

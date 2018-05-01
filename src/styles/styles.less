@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+
+@import 'variables.less';
+html, body, div {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Helvetica, 'Roboto', Arial, sans-serif;
+  overflow: auto;
+  background-attachment: fixed;
+}
+
+* { box-sizing: border-box; }
+input:focus, button:focus { outline: none; }
+input:-webkit-autofill { -webkit-box-shadow: 0 0 0px 1000px white inset; }
+
+.ant-layout {
+  background-color: @bg;
+  height: 100vh;  
+}
+.ant-layout-header {
+  background-color: @primary-color;
+  color: white;
+}
+.ant-layout-content {
+  overflow: scroll;
+  padding: 50px;
+}
+.ant-layout-footer {
+}
+
+
+/*styles for mobile browsers smaller than 480px; (iPhone) */
+@media only screen and (max-device-width:480px){
+  /*not match page*/
+  .not-found{
+    width: 100%;
+    padding: 16px;
+  }
+  .not-found > div:first-child{
+    font-size: 48px;
+  }
+}

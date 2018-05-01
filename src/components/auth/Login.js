@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 // import * as actions from "../../actions/authActions";
 
 import './auth.css';
-import '../../styles/styles.css';
 
 class Login extends Component {
   constructor(props) {

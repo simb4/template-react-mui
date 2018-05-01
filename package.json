@@ -3,15 +3,19 @@
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
+    "babel-plugin-import": "^1.7.0",
+    "less-watch-compiler": "^1.11.2",
     "react-scripts": "0.9.5",
     "redux-devtools": "^3.3.2"
   },
   "dependencies": {
+    "antd": "^3.4.4",
     "history": "^4.6.1",
     "immutability-helper": "^2.2.0",
     "lodash": "^4.17.4",
     "moment": "^2.18.1",
     "moment-timezone": "^0.5.13",
+    "npm-run-all": "^4.1.2",
     "prop-types": "^15.5.8",
     "react": "^15.5.4",
     "react-dom": "^15.4.2",
@@ -27,9 +31,14 @@
     "redux-thunk": "^2.2.0"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "REACT_APP_ENV=dev react-scripts build",
-    "build-prod": "REACT_APP_ENV=prod react-scripts build",
+    "build-css": "less-watch-compiler --run-once src src",
+    "watch-css": "npm run build-css && less-watch-compiler --main-file=index.less src src",
+    "start-js": "REACT_APP_ENV=dev react-scripts start",
+    "start": "npm-run-all -p watch-css start-js",
+    "build-js": "REACT_APP_ENV=dev react-scripts build",
+    "build": "npm-run-all build-css build-js",
+    "build-js-prod": "REACT_APP_ENV=prod react-scripts build",
+    "build-prod": "npm-run all build-css build-js-prod",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   }

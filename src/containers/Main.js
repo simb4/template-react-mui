@@ -1,55 +1,43 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { BrowserRouter as Router, Route, Switch, Redirect } 
-  from 'react-router-dom';
-import MediaQuery from 'react-responsive';
-
-import * as constants from "../constants/constants"
+import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-dom';
 
 import Login from '../components/auth/Login'
 import Header from '../components/header/Header'
 import NoMatch from './NoMatch'
 
+import { Layout } from 'antd';
+
 class _Main extends Component {
   render() {
-    let isLoggedIn = { isLoggedIn: this.props.isLoggedIn };
+    let isLoggedIn = { isLoggedIn: true };
+    // let isLoggedIn = { isLoggedIn: this.props.isLoggedIn };
     return (
       <Router>
-        <Switch>
-          <AuthRoute path="/login" component={Login} {...isLoggedIn}/>
-          <UserRoute exact path="/" component={<h3>Hello world! </h3>} {...isLoggedIn}/>
-          <HeaderRoute name="not-found" component={NoMatch} />
-        </Switch>
+        <Layout>
+          <Layout.Header className="root">
+            <Header />
+          </Layout.Header>
+          <Layout.Content>
+            <Switch>
+              <AuthRoute path="/login" component={Login} {...isLoggedIn}/>
+              <UserRoute exact path="/" component={<h3>Hello world! </h3>} {...isLoggedIn}/>
+              <Route name="not-found" component={NoMatch} />
+            </Switch>
+          </Layout.Content>
+          {/*
+            <Footer> Footer </Footer>
+          */}
+        </Layout>
       </Router>
     )
   }
 }
 
-export const HeaderRoute = (props) => {
-  let { component: Component, ...rest } = props;
-  return (
-    <MediaQuery maxDeviceWidth={constants.MOBILE_MAX_WIDTH} >
-      {(match) => {
-        return (
-          <Route {...rest} component={props => (
-            <div className="root-wrapper">
-              <Header {...props} isMobile={match} />
-              <div className="main-wrapper">
-                <Component {...props} isMobile={match} />
-              </div>
-            </div>
-
-          )} />
-        )
-      }}
-    </MediaQuery>
-  )
-}
-
 export const AuthRoute = (props) => {
   let { component: Component, isLoggedIn, ...rest, } = props;
   return (
-    <HeaderRoute {...rest} component={props => (
+    <Route {...rest} component={props => (
       !isLoggedIn ? (
         <Component {...props} />
       ) : (
@@ -62,7 +50,7 @@ export const AuthRoute = (props) => {
 export const UserRoute = (props) => {
   let { component: Component, isLoggedIn, ...rest } = props;
   return (
-    <HeaderRoute {...rest} component={props => (
+    <Route {...rest} component={props => (
       isLoggedIn ? (
         <Component {...props} />
       ) : (

@@ -1,0 +1,17 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+}
+.logo {
+  width: 100%;
+  min-width: 36px;
+  min-height: 36px;
+  max-width: 48px;
+  max-height: 48px;
+}
+.ant-btn-clicked {
+  color: var(--green);
+}
+.ant-btn-clicked:active {
+  color: var(--green);
+}

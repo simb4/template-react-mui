@@ -18509,25 +18509,18 @@ input:-webkit-autofill {
   background-color: #11D577;
   color: white;
 }
+.header-height {
+  line-height: 64px;
+  height: 64px;
+}
 .ant-layout-content {
   overflow: scroll;
   padding: 50px;
 }
-@media only screen and (max-device-width: 768px) {
+@media only screen and (max-width: 768px) {
   .ant-layout-header,
   .ant-layout-content {
     padding: 0 32px;
-  }
-}
-/*styles for mobile browsers smaller than 480px; (iPhone) */
-@media only screen and (max-device-width: 480px) {
-  /*not match page*/
-  .not-found {
-    width: 100%;
-    padding: 16px;
-  }
-  .not-found > div:first-child {
-    font-size: 48px;
   }
 }
 .header {
@@ -18558,4 +18551,17 @@ input:-webkit-autofill {
 }
 .user-name {
   margin: 0 12px;
+}
+@media only screen and (max-width: 768px) {
+  .nav-link {
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .nav-link a {
+    display: block;
+    line-height: 24px;
+    height: 24px;
+  }
 }

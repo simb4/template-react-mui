@@ -20,32 +20,25 @@ input:-webkit-autofill { -webkit-box-shadow: 0 0 0px 1000px white inset; }
   background-color: @bg;
   height: 100vh;  
 }
+
 .ant-layout-header {
   background-color: @primary-color;
   color: white;
 }
+
+.header-height { line-height: 64px; height: 64px; }
+
 .ant-layout-content {
   overflow: scroll;
   padding: 50px;
 }
-.ant-layout-footer {
-}
 
-@media only screen and (max-device-width: 768px) {
+.ant-layout-footer {}
+
+
+@media only screen and (max-width: 768px) {
   .ant-layout-header,
   .ant-layout-content {
     padding: 0 32px;
-  }
-}
-
-/*styles for mobile browsers smaller than 480px; (iPhone) */
-@media only screen and (max-device-width:480px){
-  /*not match page*/
-  .not-found{
-    width: 100%;
-    padding: 16px;
-  }
-  .not-found > div:first-child{
-    font-size: 48px;
   }
 }

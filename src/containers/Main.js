@@ -8,6 +8,10 @@ import NoMatch from './NoMatch'
 
 import { Layout } from 'antd';
 
+const HelloWorld = () => {
+  return (<h3>Hello world! {window.location.pathname} </h3>);
+}
+
 class _Main extends Component {
   render() {
     let isLoggedIn = { isLoggedIn: true };
@@ -21,7 +25,10 @@ class _Main extends Component {
           <Layout.Content>
             <Switch>
               <AuthRoute path="/login" component={Login} {...isLoggedIn}/>
-              <UserRoute exact path="/" component={<h3>Hello world! </h3>} {...isLoggedIn}/>
+              <UserRoute exact path="/" component={HelloWorld} {...isLoggedIn}/>
+              <UserRoute exact path="/visits" component={HelloWorld} {...isLoggedIn}/>
+              <UserRoute exact path="/classes" component={HelloWorld} {...isLoggedIn}/>
+              <UserRoute exact path="/stats" component={HelloWorld} {...isLoggedIn}/>
               <Route name="not-found" component={NoMatch} />
             </Switch>
           </Layout.Content>

@@ -18457,11 +18457,12 @@ li.ant-select-tree-treenode-disabled > .ant-select-tree-node-content-wrapper:hov
     opacity: 0;
   }
 }
+/* fallback */
 @font-face {
   font-family: 'Material Icons';
   font-style: normal;
   font-weight: 400;
-  src: url(https://fonts.gstatic.com/s/materialicons/v36/flUhRq6tzZclQEJ-Vdg-IuiaDsNZ.ttf) format('truetype');
+  src: url(https://fonts.gstatic.com/s/materialicons/v36/flUhRq6tzZclQEJ-Vdg-IuiaDsNcIhQ8tQ.woff2) format('woff2');
 }
 .material-icons {
   font-family: 'Material Icons';
@@ -18475,6 +18476,8 @@ li.ant-select-tree-treenode-disabled > .ant-select-tree-node-content-wrapper:hov
   white-space: nowrap;
   word-wrap: normal;
   direction: ltr;
+  -webkit-font-feature-settings: 'liga';
+  -webkit-font-smoothing: antialiased;
 }
 html,
 body,
@@ -18510,6 +18513,12 @@ input:-webkit-autofill {
   overflow: scroll;
   padding: 50px;
 }
+@media only screen and (max-device-width: 768px) {
+  .ant-layout-header,
+  .ant-layout-content {
+    padding: 0 32px;
+  }
+}
 /*styles for mobile browsers smaller than 480px; (iPhone) */
 @media only screen and (max-device-width: 480px) {
   /*not match page*/
@@ -18532,9 +18541,21 @@ input:-webkit-autofill {
   max-width: 48px;
   max-height: 48px;
 }
-.ant-btn-clicked {
-  color: var(--green);
+.nav-link a {
+  text-decoration: none;
+  color: white;
+  transition: opacity 0.3s;
+  opacity: 0.6;
 }
-.ant-btn-clicked:active {
-  color: var(--green);
+.nav-link a:hover {
+  opacity: 0.8;
+}
+.nav-link a.active {
+  opacity: 1;
+}
+.nav-link i {
+  margin: 0 4px;
+}
+.user-name {
+  margin: 0 12px;
 }

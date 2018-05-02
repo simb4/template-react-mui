@@ -1,21 +1,27 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { Button, Col, Row, Icon } from 'antd'
-import { Link } from 'react-router-dom'
+import { Col, Row, Icon, Avatar } from 'antd'
+import { withRouter, Link } from 'react-router-dom'
 // import * as authActions from '../../actions/authActions'
 
-import './header.css';
+const tabs = [
+  { title: 'Посещения', iconType: 'check', path: '/visits' },
+  { title: 'Расписания', iconType: 'calendar', path: '/classes' },
+  { title: 'Статистика', iconType: 'bar-chart', path: '/stats' },
+]
 
-const NavLink = (props) => {
+const NavLink = ({ tab }) => {
+  console.log(window.location.pathname, tab.path, tab.path === window.location.pathname);
+  let linkClass = tab.path === window.location.pathname
+    ? 'active'
+    : '';
   return (
-    <Link to="/">
-    <Button
-      style={{borderColor: 'transparent'}}
-      icon="check"
-      ghost={true}>
-        Click
-    </Button>
-    </Link>)
+      <Col span={8} className="nav-link">
+        <Link to={tab.path} className={linkClass}>
+          <Icon type={tab.iconType} />
+          {tab.title}
+        </Link>
+      </Col>)
 }
 
 class _Header extends Component {
@@ -32,12 +38,17 @@ class _Header extends Component {
             <img className="logo" src="../../logo.png" alt="" />
           </Col>
           <Col span={12} offset={4}>
-            <NavLink />
-            <NavLink />
-            <NavLink />
+            <Row type="flex" justify="center" gutter={8}>
+              {
+                tabs.map(tab => <NavLink key={tab.path} tab={tab} />)
+              }
+            </Row>
           </Col>
-          <Col span={4} offset={2}>
-            navs
+          <Col span={6} type="flex">
+            <Row type="flex" justify="end" align="middle">
+              <div className="user-name">Golden Eagle</div>
+              <Avatar size="large" icon="user" />
+            </Row>
           </Col>
         </Row>
 
@@ -69,4 +80,4 @@ const Header=connect(
   mapDispatchToProps
 )(_Header);
 
-export default Header;
+export default withRouter(Header);

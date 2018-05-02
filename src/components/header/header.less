@@ -10,10 +10,17 @@
 	max-width: 48px;
 	max-height: 48px;
 }
-
-.ant-btn-clicked {
-	color: var(--green);
+.nav-link a {
+	text-decoration: none;
+	color: white;
+	transition: opacity 0.3s;
+	opacity: 0.6;
+	&:hover { opacity: 0.8; }
+	&.active { opacity: 1; }
 }
-.ant-btn-clicked:active {
-	color: var(--green);
+.nav-link i {
+	margin: 0 4px;
+}
+.user-name {
+	margin: 0 12px;
 }

@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
-
+@import 'fonts.less';
 @import 'variables.less';
 html, body, div {
   border: 0;
@@ -32,6 +31,12 @@ input:-webkit-autofill { -webkit-box-shadow: 0 0 0px 1000px white inset; }
 .ant-layout-footer {
 }
 
+@media only screen and (max-device-width: 768px) {
+  .ant-layout-header,
+  .ant-layout-content {
+    padding: 0 32px;
+  }
+}
 
 /*styles for mobile browsers smaller than 480px; (iPhone) */
 @media only screen and (max-device-width:480px){

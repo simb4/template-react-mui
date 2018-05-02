@@ -9,9 +9,6 @@
   max-width: 48px;
   max-height: 48px;
 }
-.ant-btn-clicked {
-  color: var(--green);
-}
-.ant-btn-clicked:active {
-  color: var(--green);
+.nav-link a {
+  color: white;
 }

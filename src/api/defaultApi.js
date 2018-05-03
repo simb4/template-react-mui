@@ -1,6 +1,6 @@
 import { STD_HEADERS } from "../constants/constants"
 import { transformRequest } from '../utils/transform'
-import qs from "qs"
+// import qs from "qs"
 
 export const stdApi = (options) => (
   fetch(

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { Col, Row, Icon, Avatar, Popover, Menu } from 'antd'
+import { Col, Row, Icon, Avatar, Popover } from 'antd'
 import { withRouter, Link } from 'react-router-dom'
 import MediaQuery from 'react-responsive';
 
@@ -21,7 +21,7 @@ const NavLink = ({ tab }) => {
     : '';
   return (
       <Col span={8} className="nav-link">
-        <MediaQuery minDeviceWidth={768}>
+        <MediaQuery minDeviceWidth={769}>
           <Link to={tab.path} className={linkClass}>
             <Icon type={tab.iconType} />
             {tab.title}

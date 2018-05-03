@@ -18518,9 +18518,11 @@ input:-webkit-autofill {
   padding: 50px;
 }
 @media only screen and (max-width: 768px) {
-  .ant-layout-header,
-  .ant-layout-content {
+  .ant-layout-header {
     padding: 0 32px;
+  }
+  .ant-layout-content {
+    padding: 32px;
   }
 }
 .header {

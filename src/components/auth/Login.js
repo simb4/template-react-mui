@@ -54,7 +54,12 @@ class Login extends Component {
 
   render() {
     return (
-      <Col span={12} offset={6}>
+      <Col
+        xs={{span: 24, offset: 0}}
+        sm={{span: 6, offset: 9}}
+        md={{span: 12, offset: 6}}
+        lg={{span: 10, offset: 7}}
+        xl={{span:  8, offset: 8}}>
           <WrappedNormalLoginForm onLogin={this.props.onLogin}/>
       </Col>
       )

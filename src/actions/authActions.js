@@ -7,7 +7,11 @@ export const login = (data) => (dispatch, getState) => {
   defaultAction(dispatch, getState, {
     action: actionTypes.ACTION_LOGIN,
     apiCall: () => { return authApi.login(data) },
-    onSuccess: (response) => ({ user: response.user, token: response.token }),
+    onSuccess: (response) => ({
+      user: response.user,
+      token: response.token,
+      fitnesses: response.user.fitness_set,
+    }),
     onFailure: (response) => ({ errorMessage: response.message }),
   })
 }
@@ -22,6 +26,12 @@ export const resetPassword = (data) => (dispatch, getState) => {
 }
 
 export const logout = () => (dispatch, getState) => {
-  dispatch({ type: actionTypes.ACTION_LOGGED_OUT });
+  defaultAction(dispatch, getState, {
+    action: actionTypes.ACTION_LOGGED_OUT,
+    apiCall: () => { return authApi.logout(getState().user.token) },
+    onSuccess: (response) => ({ }),
+    onFailure: (response) => ({ errorMessage: response.message }),
+  })
+
   // localStorage.clear()
 }

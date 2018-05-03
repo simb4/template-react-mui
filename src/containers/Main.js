@@ -14,8 +14,8 @@ const HelloWorld = () => {
 
 class _Main extends Component {
   render() {
-    let isLoggedIn = { isLoggedIn: true };
-    // let isLoggedIn = { isLoggedIn: this.props.isLoggedIn };
+    // let isLoggedIn = { isLoggedIn: true };
+    let isLoggedIn = { isLoggedIn: this.props.isLoggedIn };
     return (
       <Router>
         <Layout>

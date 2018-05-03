@@ -1,17 +1,18 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { Col, Row, Icon, Avatar } from 'antd'
+import { Col, Row, Icon, Avatar, Popover, Menu } from 'antd'
 import { withRouter, Link } from 'react-router-dom'
 import MediaQuery from 'react-responsive';
 
-
-// import * as authActions from '../../actions/authActions'
+import * as authActions from '../../actions/authActions'
 
 const tabs = [
   { title: 'Посещения', iconType: 'check', path: '/visits' },
   { title: 'Расписания', iconType: 'calendar', path: '/classes' },
   { title: 'Статистика', iconType: 'bar-chart', path: '/stats' },
 ]
+
+const loginTab = { title: 'Войти', iconType: 'login', path: '/login' }
 
 const NavLink = ({ tab }) => {
   console.log(window.location.pathname, tab.path, tab.path === window.location.pathname);
@@ -34,38 +35,60 @@ const NavLink = ({ tab }) => {
       </Col>)
 }
 
+const UserMenu = ({ onLogout }) => {
+  return (
+    <div className="header-menu">
+      <a onClick={onLogout}>Выйти</a>
+    </div>
+  )
+}
+
 class _Header extends Component {
   constructor(props){
     super(props)
     this.state = {}
   }
-
   render() {
     return (
       <div>
         <Row type="flex" justify="space-between">
           <Col span={2}>
-            <img className="logo" src="../../logo.png" alt="" />
+            <Link to="/">
+              <img className="logo" src="../../logo.png" alt="" />
+            </Link>
           </Col>
           <Col span={12} offset={4}>
             <Row type="flex" justify="center" gutter={8}>
-              {
+              {this.props.isLoggedIn &&
                 tabs.map(tab => <NavLink key={tab.path} tab={tab} />)
               }
             </Row>
           </Col>
           <Col span={6}>
-              <MediaQuery minWidth={769}>
-                <Row type="flex" justify="end" align="middle" className="header-height">
-                  <div className="user-name">Golden Eagle</div>
-                  <Avatar size="large" icon="user" />
-                </Row>
-              </MediaQuery>
-              <MediaQuery maxWidth={768}>
-                <div className="header-height ant-row-flex ant-row-flex-end ant-row-flex-middle">
-                  <Avatar icon="user" />
+              {this.props.isLoggedIn &&
+                <MediaQuery minWidth={768}>
+                  <div className="ant-row-flex ant-row-flex-end ant-row-flex-middle">
+                    <div className="user-name">Golden Eagle</div>
+                    <Popover
+                      placement="bottomRight"
+                      title="Golden Eagle"
+                      content={<UserMenu onLogout={this.props.onLogout} />}
+                      trigger="click">
+                        <Avatar size="large" icon="user" className="avatar-bordered" />
+                    </Popover>
+                  </div>
+                </MediaQuery>
+              } {this.props.isLoggedIn &&
+                <MediaQuery maxWidth={768}>
+                  <div className="header-height ant-row-flex ant-row-flex-end ant-row-flex-middle">
+                    <Avatar icon="user" className="avatar-bordered" />
+                  </div>
+                </MediaQuery>
+              } {!this.props.isLoggedIn &&
+                <div className="ant-row-flex ant-row-flex-end ant-row-flex-middle">
+                  <NavLink tab={loginTab} />
                 </div>
-              </MediaQuery>
+              }
           </Col>
         </Row>
       </div>
@@ -74,9 +97,11 @@ class _Header extends Component {
 }
 
 const mapStateToProps=(state) => ({
+  isLoggedIn: state.auth.isLoggedIn,
 })
 
 const mapDispatchToProps={
+  onLogout: authActions.logout,
 }
 
 const Header=connect(

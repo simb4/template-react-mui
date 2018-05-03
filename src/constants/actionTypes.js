@@ -10,7 +10,11 @@ export const ACTION_LOGIN = {
 }
 
 // Related to log out method
-export const ACTION_LOGGED_OUT = "LOGOUT";
+export const ACTION_LOGGED_OUT = {
+	started: "LOGOUT_STARTED",
+	failed: "LOGOUT_FAILED",
+	success: "LOGOUT_SUCCESS",
+}
 
 // related to update user
 export const ACTION_UPDATE_PROFILE = {

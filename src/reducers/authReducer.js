@@ -6,7 +6,7 @@ const isLoggedIn = (state = false, action) => {
     switch (action.type) {
         case actionTypes.ACTION_LOGIN.success:
             return true;
-        case actionTypes.ACTION_LOGGED_OUT:
+        case actionTypes.ACTION_LOGGED_OUT.success:
             return false;
         default:
             return state;
@@ -17,7 +17,7 @@ const isLoggingIn = (state = false, action) => {
         case actionTypes.ACTION_LOGIN.success:
             return true;
         case actionTypes.ACTION_LOGIN.failed:
-        case actionTypes.ACTION_LOGGED_OUT:
+        case actionTypes.ACTION_LOGGED_OUT.success:
             return false;
         default:
             return state;
@@ -27,7 +27,7 @@ const errorMessage = (state = "", action) => {
     switch (action.type) {
         case actionTypes.ACTION_LOGIN.started:
         case actionTypes.ACTION_LOGIN.success:
-        case actionTypes.ACTION_LOGGED_OUT:
+        case actionTypes.ACTION_LOGGED_OUT.success:
             return "";
         case actionTypes.ACTION_LOGIN.failed:
             return action.errorMessage;

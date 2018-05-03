@@ -3,6 +3,7 @@
 	justify-content: space-between;
 
 }
+
 .logo {
 	width: 100%;
 	min-width: 36px;
@@ -10,6 +11,7 @@
 	max-width: 48px;
 	max-height: 48px;
 }
+
 .nav-link a {
 	text-decoration: none;
 	color: white;
@@ -18,11 +20,17 @@
 	&:hover { opacity: 0.8; }
 	&.active { opacity: 1; }
 }
+
 .nav-link i {
 	margin: 0 4px;
 }
+
 .user-name {
 	margin: 0 12px;
+}
+
+.avatar-bordered {
+	border: 2px solid @success-color;
 }
 
 @media only screen and (max-width: 768px) {

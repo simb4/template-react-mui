@@ -2176,11 +2176,11 @@ mark {
   display: none;
 }
 .ant-alert-success {
-  border: 1px solid #b7eb8f;
-  background-color: #f6ffed;
+  border: 1px solid #c4ffdd;
+  background-color: #f0fff5;
 }
 .ant-alert-success .ant-alert-icon {
-  color: #52c41a;
+  color: #45F09E;
 }
 .ant-alert-info {
   border: 1px solid #91d5ff;
@@ -2606,7 +2606,7 @@ mark {
   top: -1px;
 }
 .ant-badge-status-success {
-  background-color: #52c41a;
+  background-color: #45F09E;
 }
 .ant-badge-status-processing {
   background-color: #11D577;
@@ -7140,7 +7140,7 @@ form .ant-input-group-wrapper {
 .has-success.has-feedback .ant-form-item-children:after {
   animation-name: diffZoomIn1 !important;
   content: '\e630';
-  color: #52c41a;
+  color: #45F09E;
 }
 .has-warning .ant-form-explain,
 .has-warning .ant-form-split {
@@ -12291,7 +12291,7 @@ textarea.ant-mention-wrapper .ant-mention-editor {
   pointer-events: all;
 }
 .ant-message-success .anticon {
-  color: #52c41a;
+  color: #45F09E;
 }
 .ant-message-error .anticon {
   color: #f5222d;
@@ -12533,7 +12533,7 @@ textarea.ant-mention-wrapper .ant-mention-editor {
   color: #1890ff;
 }
 .ant-confirm-success .ant-confirm-body > .anticon {
-  color: #52c41a;
+  color: #45F09E;
 }
 .ant-notification {
   font-family: "Monospaced Number", "Chinese Quote", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -12612,7 +12612,7 @@ textarea.ant-mention-wrapper .ant-mention-editor {
   margin-left: 4px;
 }
 .ant-notification-notice-icon-success {
-  color: #52c41a;
+  color: #45F09E;
 }
 .ant-notification-notice-icon-info {
   color: #1890ff;
@@ -13298,7 +13298,7 @@ textarea.ant-pagination-options-quick-jumper input {
   position: relative;
 }
 .ant-progress-success-bg {
-  background-color: #52c41a;
+  background-color: #45F09E;
   position: absolute;
   top: 0;
   left: 0;
@@ -13339,13 +13339,13 @@ textarea.ant-pagination-options-quick-jumper input {
   stroke: #f5222d;
 }
 .ant-progress-status-success .ant-progress-bg {
-  background-color: #52c41a;
+  background-color: #45F09E;
 }
 .ant-progress-status-success .ant-progress-text {
-  color: #52c41a;
+  color: #45F09E;
 }
 .ant-progress-status-success .ant-progress-circle-path {
-  stroke: #52c41a;
+  stroke: #45F09E;
 }
 .ant-progress-circle .ant-progress-inner {
   position: relative;
@@ -13371,7 +13371,7 @@ textarea.ant-pagination-options-quick-jumper input {
   color: #f5222d;
 }
 .ant-progress-circle.ant-progress-status-success .ant-progress-text {
-  color: #52c41a;
+  color: #45F09E;
 }
 @keyframes ant-progress-active {
   0% {
@@ -16948,8 +16948,8 @@ textarea.ant-time-picker-input {
   color: #f5222d;
 }
 .ant-timeline-item-head-green {
-  border-color: #52c41a;
-  color: #52c41a;
+  border-color: #45F09E;
+  color: #45F09E;
 }
 .ant-timeline-item-head-custom {
   position: absolute;
@@ -18401,7 +18401,7 @@ li.ant-select-tree-treenode-disabled > .ant-select-tree-node-content-wrapper:hov
   bottom: 32px;
 }
 .ant-upload-list .ant-upload-success-icon {
-  color: #52c41a;
+  color: #45F09E;
   font-weight: bold;
 }
 .ant-upload-list .ant-upload-animate-enter,
@@ -18551,6 +18551,9 @@ input:-webkit-autofill {
 }
 .user-name {
   margin: 0 12px;
+}
+.avatar-bordered {
+  border: 2px solid #45F09E;
 }
 @media only screen and (max-width: 768px) {
   .nav-link {

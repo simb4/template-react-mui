@@ -11,7 +11,8 @@ export const stdApi = (options) => (
         ...STD_HEADERS,
         "auth-token": options.token,
       } : STD_HEADERS,
-      body: qs.stringify(options.data || {}),
+      body: JSON.stringify(options.data || {}),
+      // body: qs.stringify(options.data || {}),
     }
   )
 )

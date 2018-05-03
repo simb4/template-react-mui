@@ -15,7 +15,6 @@ const tabs = [
 const loginTab = { title: 'Войти', iconType: 'login', path: '/login' }
 
 const NavLink = ({ tab }) => {
-  console.log(window.location.pathname, tab.path, tab.path === window.location.pathname);
   let linkClass = tab.path === window.location.pathname
     ? 'active'
     : '';

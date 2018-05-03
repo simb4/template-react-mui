@@ -18521,6 +18521,12 @@ input:-webkit-autofill {
   font-size: 32px;
   font-weight: bold;
 }
+.ant-table-thead > tr > th {
+  background-color: #EFEFEF;
+}
+.ant-table-row {
+  background-color: white;
+}
 @media only screen and (max-width: 768px) {
   .ant-layout-header {
     padding: 0 32px;

@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import _ from 'lodash';
+
 import { Row, Col, Select } from 'antd';
+import VisistsTable from '../../components/visits/VisitsTable';
 
 import * as fitnessActions from '../../actions/fitnessActions';
 
@@ -8,22 +11,44 @@ class _VisistsPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      filter: {},
+      filter: {
+        sport_type: null,
+        status: null,
+      },
     }
   }
   componentDidUpdate() {}
 
   componentDidMount() {
     this.props.getSports();
+    this.applyFilters();
+  }
+  applyFilters() {
+    let { sport_type, status } = this.state.filter;
+    let startTime = new Date(); startTime.setHours(0,0,0,0);
+    let endTime = new Date(); endTime.setHours(23,59,59,999);
+    let data = {
+      timestamp_start: startTime.toISOString(),
+      timestamp_end: endTime.toISOString(),
+    }
+    if (!!sport_type) data = _.extend({ sport_type }, data);
+    if (!!status) data = _.extend({ status }, data);
+    console.log(data, status, this.state.filter.status);
+    this.props.getVisits(data);
   }
   onChangeStatus(status) {
     this.setState({
-      fitler: { ...this.state.filter, status }
+      filter: { ...this.state.filter, status }
+    }, () => {
+      console.log(status, this.state.filter);
+      this.applyFilters();
     });
   }
   onChangeSport(sport_type) {
     this.setState({
-      fitler: { ...this.state.filter, sport_type }
+      filter: { ...this.state.filter, sport_type }
+    }, () => {
+      this.applyFilters();
     });
   }
   render() {
@@ -62,14 +87,11 @@ class _VisistsPage extends Component {
                 </Select>
               </Col>
             </Row>
-
-            <Row type="flex" justify="end" align="middle">
-
-              {/*<Table columns={columns} dataSource={visits} />*/}
-
-            </Row>
-
           </Col>
+        </Row>
+
+        <Row type="flex" justify="center">
+          <VisistsTable visits={this.props.visits} isLoading={false} />
         </Row>
       </div>
     )
@@ -78,7 +100,7 @@ class _VisistsPage extends Component {
 
 const mapStateToProps = (state) => ({
   sports: state.fitness.sports,
-  visits: state.visits,
+  visits: state.fitness.visits,
 })
 
 const mapDispatchToProps = {

@@ -8,6 +8,6 @@ export const getSports = (data, token) => (
   API.stdApiGET({ data, token, url: getSportsUrl })
 )
 
-export const getVisits = (data, token) => (
-  API.stdApiGET({ data, token, url: getVisitsUrl })
+export const getVisits = (data, token, fitness_id) => (
+  API.stdApiGET({ data, token, fitness_id, url: getVisitsUrl })
 )

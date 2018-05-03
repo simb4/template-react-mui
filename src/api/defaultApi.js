@@ -5,7 +5,6 @@ import qs from "qs"
 
 const modifyHeader = (options) => {
   let headers = _.extend({}, STD_HEADERS);
-  console.log(qs.stringify(headers));
   if (!!options.token)
     headers = _.extend({ 'auth-token': options.token }, headers);
   if (!!options.fitness_id)

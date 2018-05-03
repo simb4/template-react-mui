@@ -1,6 +1,22 @@
 import { combineReducers } from 'redux';
 import * as actionTypes from '../constants/actionTypes';
 
+const transformVisit = (visit) => ({
+    id: visit.id,
+    status: visit.status,
+    training: {
+        start: visit.training.timestamp_start,
+        end: visit.training.timestamp_end,
+        name: visit.training.sport_type.name,
+        type: visit.training.sport_type.type,
+    },
+    user: {
+        id: visit.user.id,
+        name: visit.user.full_name,
+        avatar: visit.user.avatar,
+        phone: visit.user.phone,
+    }
+})
 
 const fitnesses = (state = [], action) => {
     switch (action.type) {
@@ -38,7 +54,7 @@ const sports = (state = [], action) => {
 const visits = (state = [], action) => {
     switch(action.type) {
         case actionTypes.ACTION_GET_VISITS.success:
-            return visits;
+            return action.visits.map(visit => transformVisit(visit));
         case actionTypes.ACTION_LOGGED_OUT.success:
             return [];
         default:

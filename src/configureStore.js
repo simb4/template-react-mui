@@ -39,6 +39,10 @@ const configureStore = () => {
         auth: {
           isLoggedIn: store.getState().auth.isLoggedIn,
         },
+        fitness: {
+          fitness: store.getState().fitness.fitness,
+          fitnesses: store.getState().fitness.fitnesses,
+        },
         user: store.getState().user,
       });
     },

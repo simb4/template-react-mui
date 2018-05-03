@@ -18487,7 +18487,7 @@ div {
   padding: 0;
 }
 body {
-  font-family: Helvetica, 'Roboto', Arial, sans-serif;
+  font-family: 'Roboto', Helvetica, Arial, sans-serif;
   overflow: auto;
   background-attachment: fixed;
 }
@@ -18516,6 +18516,10 @@ input:-webkit-autofill {
 .ant-layout-content {
   overflow: scroll;
   padding: 50px;
+}
+.page-title {
+  font-size: 32px;
+  font-weight: bold;
 }
 @media only screen and (max-width: 768px) {
   .ant-layout-header {

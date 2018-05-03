@@ -2,9 +2,11 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-dom';
 
-import Login from '../components/auth/Login'
-import Header from '../components/header/Header'
-import NoMatch from './NoMatch'
+import Login from '../components/auth/Login';
+import Header from '../components/header/Header';
+
+import VisitsPage from './pages/VisitsPage';
+import NoMatch from './NoMatch';
 
 import { Layout } from 'antd';
 
@@ -26,7 +28,7 @@ class _Main extends Component {
             <Switch>
               <AuthRoute path="/login" component={Login} {...isLoggedIn}/>
               <UserRoute exact path="/" component={HelloWorld} {...isLoggedIn}/>
-              <UserRoute exact path="/visits" component={HelloWorld} {...isLoggedIn}/>
+              <UserRoute exact path="/visits" component={VisitsPage} {...isLoggedIn}/>
               <UserRoute exact path="/classes" component={HelloWorld} {...isLoggedIn}/>
               <UserRoute exact path="/stats" component={HelloWorld} {...isLoggedIn}/>
               <Route name="not-found" component={NoMatch} />

@@ -35,19 +35,23 @@ const NavLink = ({ tab }) => {
       </Col>)
 }
 
-const UserMenu = ({ onLogout }) => {
+const UserMenu = ({ children, onLogout }) => {
   return (
-    <div className="header-menu">
-      <a onClick={onLogout}>Выйти</a>
-    </div>
+    <Popover
+      placement="bottomRight"
+      title="Golden Eagle"
+      content={
+        <div className="header-menu">
+          <a onClick={onLogout}>Выйти</a>
+        </div>
+      }
+      trigger="click">
+      {children}
+    </Popover>
   )
 }
 
 class _Header extends Component {
-  constructor(props){
-    super(props)
-    this.state = {}
-  }
   render() {
     return (
       <div>
@@ -69,19 +73,17 @@ class _Header extends Component {
                 <MediaQuery minWidth={768}>
                   <div className="ant-row-flex ant-row-flex-end ant-row-flex-middle">
                     <div className="user-name">Golden Eagle</div>
-                    <Popover
-                      placement="bottomRight"
-                      title="Golden Eagle"
-                      content={<UserMenu onLogout={this.props.onLogout} />}
-                      trigger="click">
-                        <Avatar size="large" icon="user" className="avatar-bordered" />
-                    </Popover>
+                    <UserMenu onLogout={this.props.onLogout}>
+                      <Avatar size="large" icon="user" className="avatar-bordered" />
+                    </UserMenu>
                   </div>
                 </MediaQuery>
               } {this.props.isLoggedIn &&
                 <MediaQuery maxWidth={768}>
                   <div className="header-height ant-row-flex ant-row-flex-end ant-row-flex-middle">
-                    <Avatar icon="user" className="avatar-bordered" />
+                    <UserMenu onLogout={this.props.onLogout}>
+                      <Avatar icon="user" className="avatar-bordered" />
+                    </UserMenu>
                   </div>
                 </MediaQuery>
               } {!this.props.isLoggedIn &&

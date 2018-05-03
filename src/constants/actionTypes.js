@@ -30,3 +30,16 @@ export const ACTION_RESET_PASSWORD = {
 	failed: "LOGIN_FAILED",
 }
 
+
+// Related to fitness
+export const ACTION_GET_SPORTS = {
+	started: "GET_SPORTS_STARTED",
+	success: "GET_SPORTS_SUCCESS",
+	failed: "GET_SPORTS_FAILED",
+}
+
+export const ACTION_GET_VISITS = {
+	started: "GET_VISITS_STARTED",
+	success: "GET_VISITS_SUCCESS",
+	failed: "GET_VISITS_FAILED",
+}

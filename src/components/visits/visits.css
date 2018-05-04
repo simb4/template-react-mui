@@ -1,3 +1,17 @@
 /* stylelint-disable no-duplicate-selectors */
 /* stylelint-disable declaration-bang-space-before,no-duplicate-selectors */
 /* stylelint-disable declaration-bang-space-before,no-duplicate-selectors,string-no-newline */
+.status-approve {
+  color: #11D577;
+}
+.status-cancel {
+  color: #f5222d;
+}
+.status-waiting {
+  color: #faad14;
+}
+.status-approve span,
+.status-cancel span,
+.status-waiting span {
+  margin-left: 4px;
+}

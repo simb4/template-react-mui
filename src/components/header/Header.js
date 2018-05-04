@@ -4,6 +4,7 @@ import { Col, Row, Icon, Avatar, Popover } from 'antd'
 import { withRouter, Link } from 'react-router-dom'
 import MediaQuery from 'react-responsive';
 
+import { SITE_URL } from '../../constants/server';
 import * as authActions from '../../actions/authActions'
 
 const tabs = [
@@ -40,8 +41,8 @@ const UserMenu = ({ children, onLogout }) => {
       placement="bottomRight"
       title="Golden Eagle"
       content={
-        <div className="header-menu">
-          <a onClick={onLogout}>Выйти</a>
+        <div className="header-menu" onClick={onLogout}>
+          <a>Выйти</a>
         </div>
       }
       trigger="click">
@@ -52,6 +53,7 @@ const UserMenu = ({ children, onLogout }) => {
 
 class _Header extends Component {
   render() {
+    let avatar = this.props.user.avatar;
     return (
       <div>
         <Row type="flex" justify="space-between">
@@ -60,13 +62,17 @@ class _Header extends Component {
               <img className="logo" src="../../logo.png" alt="" />
             </Link>
           </Col>
-          <Col span={12} offset={4}>
-            <Row type="flex" justify="center" gutter={8}>
-              {this.props.isLoggedIn &&
-                tabs.map(tab => <NavLink key={tab.path} tab={tab} />)
-              }
-            </Row>
-          </Col>
+          {this.props.isLoggedIn &&
+            <Col span={12} offset={4}>
+              <Row type="flex" justify="center" gutter={8}>
+                {
+                  tabs.map(tab =>
+                    <NavLink key={tab.path} tab={tab} isLoggedIn={true} />
+                  )
+                }
+              </Row>
+            </Col>
+          }
           <Col span={6}>
               {this.props.isLoggedIn &&
                 <MediaQuery minWidth={768}>
@@ -81,13 +87,16 @@ class _Header extends Component {
                 <MediaQuery maxWidth={768}>
                   <div className="header-height ant-row-flex ant-row-flex-end ant-row-flex-middle">
                     <UserMenu onLogout={this.props.onLogout}>
-                      <Avatar icon="user" className="avatar-bordered" />
+                      {!avatar
+                        ? <Avatar icon="user" className="avatar-bordered" />
+                        : <Avatar src={SITE_URL + avatar.url} className="avatar-bordered" />
+                      }
                     </UserMenu>
                   </div>
                 </MediaQuery>
               } {!this.props.isLoggedIn &&
                 <div className="ant-row-flex ant-row-flex-end ant-row-flex-middle">
-                  <NavLink tab={loginTab} />
+                  <NavLink tab={loginTab} isLoggedIn={false} />
                 </div>
               }
           </Col>
@@ -98,6 +107,7 @@ class _Header extends Component {
 }
 
 const mapStateToProps=(state) => ({
+  user: state.user.user,
   isLoggedIn: state.auth.isLoggedIn,
 })
 

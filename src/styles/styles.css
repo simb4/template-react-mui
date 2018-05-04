@@ -20,6 +20,9 @@
   -webkit-font-feature-settings: 'liga';
   -webkit-font-smoothing: antialiased;
 }
+/* stylelint-disable no-duplicate-selectors */
+/* stylelint-disable declaration-bang-space-before,no-duplicate-selectors */
+/* stylelint-disable declaration-bang-space-before,no-duplicate-selectors,string-no-newline */
 html,
 body,
 div {
@@ -28,7 +31,7 @@ div {
   padding: 0;
 }
 body {
-  font-family: Helvetica, 'Roboto', Arial, sans-serif;
+  font-family: 'Roboto', Helvetica, Arial, sans-serif;
   overflow: auto;
   background-attachment: fixed;
 }
@@ -50,18 +53,29 @@ input:-webkit-autofill {
   background-color: #11D577;
   color: white;
 }
+.header-height {
+  line-height: 64px;
+  height: 64px;
+}
 .ant-layout-content {
   overflow: scroll;
   padding: 50px;
 }
-/*styles for mobile browsers smaller than 480px; (iPhone) */
-@media only screen and (max-device-width: 480px) {
-  /*not match page*/
-  .not-found {
-    width: 100%;
-    padding: 16px;
+.page-title {
+  font-size: 32px;
+  font-weight: bold;
+}
+.ant-table-thead > tr > th {
+  background-color: #EFEFEF;
+}
+.ant-table-row {
+  background-color: white;
+}
+@media only screen and (max-width: 768px) {
+  .ant-layout-header {
+    padding: 0 32px;
   }
-  .not-found > div:first-child {
-    font-size: 48px;
+  .ant-layout-content {
+    padding: 32px;
   }
 }

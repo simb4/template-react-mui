@@ -1,7 +1,4 @@
 /* stylelint-disable at-rule-empty-line-before,at-rule-name-space-after,at-rule-no-unknown */
-/* stylelint-disable no-duplicate-selectors */
-/* stylelint-disable declaration-bang-space-before,no-duplicate-selectors */
-/* stylelint-disable declaration-bang-space-before,no-duplicate-selectors,string-no-newline */
 /* stylelint-disable at-rule-no-unknown */
 @font-face {
   font-family: "Monospaced Number";
@@ -18457,6 +18454,9 @@ li.ant-select-tree-treenode-disabled > .ant-select-tree-node-content-wrapper:hov
     opacity: 0;
   }
 }
+/* stylelint-disable no-duplicate-selectors */
+/* stylelint-disable declaration-bang-space-before,no-duplicate-selectors */
+/* stylelint-disable declaration-bang-space-before,no-duplicate-selectors,string-no-newline */
 /* fallback */
 @font-face {
   font-family: 'Material Icons';
@@ -18579,4 +18579,23 @@ input:-webkit-autofill {
     line-height: 24px;
     height: 24px;
   }
+}
+.status-approve {
+  color: #11D577;
+}
+.status-cancel {
+  color: #f5222d;
+}
+.status-waiting {
+  color: #faad14;
+}
+.status-approve span,
+.status-cancel span,
+.status-waiting span {
+  margin-left: 8px;
+  font-size: 14px;
+  line-height: 18px;
+}
+.user-cell .ant-avatar {
+  margin-right: 8px;
 }

@@ -62,11 +62,24 @@ const visits = (state = [], action) => {
     }
 }
 
+const visitsAreLoading = (state = false, action) => {
+    switch(action.type) {
+        case actionTypes.ACTION_GET_VISITS.started:
+            return true;
+        case actionTypes.ACTION_GET_VISITS.success:
+        case actionTypes.ACTION_GET_VISITS.failed:
+            return false;
+        default:
+            return state;
+    }
+}
+
 const fitnessReducer = combineReducers({
     fitnesses,
     fitness,
     sports,
     visits,
+    visitsAreLoading,
 });
 
 export default fitnessReducer;

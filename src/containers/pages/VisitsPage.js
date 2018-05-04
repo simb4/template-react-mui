@@ -27,20 +27,20 @@ class _VisistsPage extends Component {
     let { sport_type, status } = this.state.filter;
     let startTime = new Date(); startTime.setHours(0,0,0,0);
     let endTime = new Date(); endTime.setHours(23,59,59,999);
+
     let data = {
       timestamp_start: startTime.toISOString(),
       timestamp_end: endTime.toISOString(),
     }
     if (!!sport_type) data = _.extend({ sport_type }, data);
     if (!!status) data = _.extend({ status }, data);
-    console.log(data, status, this.state.filter.status);
+
     this.props.getVisits(data);
   }
   onChangeStatus(status) {
     this.setState({
       filter: { ...this.state.filter, status }
     }, () => {
-      console.log(status, this.state.filter);
       this.applyFilters();
     });
   }
@@ -91,7 +91,9 @@ class _VisistsPage extends Component {
         </Row>
 
         <Row type="flex" justify="center">
-          <VisistsTable visits={this.props.visits} isLoading={false} />
+          <VisistsTable
+            visits={this.props.visits}
+            isLoading={this.props.isLoading} />
         </Row>
       </div>
     )
@@ -101,6 +103,7 @@ class _VisistsPage extends Component {
 const mapStateToProps = (state) => ({
   sports: state.fitness.sports,
   visits: state.fitness.visits,
+  isLoading: state.fitness.visitsAreLoading,
 })
 
 const mapDispatchToProps = {

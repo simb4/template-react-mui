@@ -1,3 +1,6 @@
+/* stylelint-disable no-duplicate-selectors */
+/* stylelint-disable declaration-bang-space-before,no-duplicate-selectors */
+/* stylelint-disable declaration-bang-space-before,no-duplicate-selectors,string-no-newline */
 .header {
   display: flex;
   justify-content: space-between;
@@ -10,5 +13,36 @@
   max-height: 48px;
 }
 .nav-link a {
+  text-decoration: none;
   color: white;
+  transition: opacity 0.3s;
+  opacity: 0.6;
+}
+.nav-link a:hover {
+  opacity: 0.8;
+}
+.nav-link a.active {
+  opacity: 1;
+}
+.nav-link i {
+  margin: 0 4px;
+}
+.user-name {
+  margin: 0 12px;
+}
+.avatar-bordered {
+  border: 2px solid #45F09E;
+}
+@media only screen and (max-width: 768px) {
+  .nav-link {
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .nav-link a {
+    display: block;
+    line-height: 24px;
+    height: 24px;
+  }
 }

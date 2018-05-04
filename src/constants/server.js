@@ -4,4 +4,4 @@ export const SERVER_URL = process.env.REACT_APP_ENV === 'prod'
 	? "https://api.1fit.kz/api/"
 	: "https://api.1fit.kz/api/";
 
-
+export const SITE_URL = "https://1fit.kz";

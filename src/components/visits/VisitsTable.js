@@ -60,27 +60,6 @@ const columns = [{
   )
 }];
 
-const data = [{
-  key: '1',
-  name: 'John Brown',
-  trainingType: 'Crossfit',
-  trainingStart: '07:00',
-  status: 'approved',
-}, {
-  key: '2',
-  name: 'John Brown',
-  trainingType: 'Crossfit',
-  trainingStart: '07:00',
-  status: 'approved',
-}, {
-  key: '3',
-  name: 'John Brown',
-  trainingType: 'Crossfit',
-  trainingStart: '07:00',
-  status: 'approved',
-}];
-
-
 class VisitsTable extends Component {
   constructor(props) {
     super(props);

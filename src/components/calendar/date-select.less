@@ -1,0 +1,70 @@
+@import "../../styles/variables.less";
+
+.date-select {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.date-select-items {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex: 1;
+	height: 42px;
+	margin-left: 8px;
+}
+.date-item-arrow {
+	padding: 12px;
+	border-radius: 4px;
+	height: 32px;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+
+	transition: 0.3s all;
+	background-color: white;
+	border: 1px solid @normal-color;
+	&:hover {
+		color: @primary-color;
+		border: 1px solid @primary-color;
+	}
+}
+.date-item {
+	flex: 1;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	cursor: pointer;
+	text-transform: capitalize;
+
+	margin-right: 8px;
+	padding: 0 12px;
+	border-radius: 4px;
+	height: 36px;
+	line-height: 16px;
+
+	transition: 0.3s all;
+	background-color: white;
+	border: 1px solid @normal-color;
+	&:hover {
+		border: 1px solid @primary-color;
+	}
+}
+.date-item-active {
+	margin-right: 16px;
+	margin-left: 4px;
+	color: @primary-color;
+	border-color: @primary-color;
+	height: 40px;
+}
+.date-weekday {
+}
+.date-weekend {
+	background-color: rgb(240,250,240, 1);
+}
+
+.date-item-left, .date-item-right {
+	animation: example;
+	display: none;
+}

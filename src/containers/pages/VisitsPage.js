@@ -3,11 +3,11 @@ import { connect } from 'react-redux';
 import _ from 'lodash';
 
 import { Row, Col, Select } from 'antd';
-import VisistsTable from '../../components/visits/VisitsTable';
+import VisitsTable from '../../components/visits/VisitsTable';
 
 import * as fitnessActions from '../../actions/fitnessActions';
 
-class _VisistsPage extends Component {
+class _VisitsPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -91,7 +91,7 @@ class _VisistsPage extends Component {
         </Row>
 
         <Row type="flex" justify="center">
-          <VisistsTable
+          <VisitsTable
             visits={this.props.visits}
             isLoading={this.props.isLoading} />
         </Row>
@@ -111,9 +111,9 @@ const mapDispatchToProps = {
   getVisits: fitnessActions.getVisits,
 };
 
-const VisistsPage = connect(
+const VisitsPage = connect(
   mapStateToProps,
   mapDispatchToProps
-)(_VisistsPage);
+)(_VisitsPage);
 
-export default VisistsPage;
+export default VisitsPage;

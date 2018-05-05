@@ -1,0 +1,48 @@
+/* stylelint-disable no-duplicate-selectors */
+/* stylelint-disable declaration-bang-space-before,no-duplicate-selectors */
+/* stylelint-disable declaration-bang-space-before,no-duplicate-selectors,string-no-newline */
+.date-select {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.date-select-items {
+  display: flex;
+  justify-content: center;
+  flex: 1;
+}
+.date-item-arrow {
+  background-color: white;
+  border: 1px solid #d9d9d9;
+}
+.date-item-arrow:hover {
+  color: #11D577;
+  border: 1px solid #11D577;
+}
+.date-item {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  text-transform: capitalize;
+  margin-right: 8px;
+  padding: 0 12px;
+  border-radius: 4px;
+  height: 36px;
+  line-height: 16px;
+  transition: 0.3s all;
+  background-color: white;
+  border: 1px solid #d9d9d9;
+}
+.date-item:hover {
+  border: 1px solid #11D577;
+}
+.date-item-active {
+  color: #11D577;
+  border-color: #11D577;
+}
+.date-weekend {
+  background-color: #f0faf0;
+}
+

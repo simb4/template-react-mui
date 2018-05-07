@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Row } from 'antd';
 import DateSelect from '../../components/calendar/DateSelect';
+import AddClassForm from '../../components/classes/AddClassForm';
+
 import '../../utils/convert';
 import * as fitnessActions from '../../actions/fitnessActions';
 
@@ -15,10 +17,15 @@ class _SchedulePage extends Component {
   render() {
     return (
       <div>
-        <Row type="flex" justify="center">
+        <Row>
           <DateSelect
             date={this.state.curDate}
             onSelect={(d) => {console.log('got',d)}}/>
+        </Row>
+        <Row>
+          <AddClassForm
+            date={this.state.curDate} 
+            onSubmit={this.props.onCreateClass}/>
         </Row>
       </div>
     )
@@ -32,8 +39,7 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = {
-  getSports: fitnessActions.getSports,
-  getVisits: fitnessActions.getVisits,
+  createClass: fitnessActions.onCreateClass,
 };
 
 const SchedulePage = connect(

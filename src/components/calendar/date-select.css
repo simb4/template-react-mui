@@ -9,9 +9,19 @@
 .date-select-items {
   display: flex;
   justify-content: center;
+  align-items: center;
   flex: 1;
+  height: 42px;
+  margin-left: 8px;
 }
 .date-item-arrow {
+  padding: 12px;
+  border-radius: 4px;
+  height: 32px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  transition: 0.3s all;
   background-color: white;
   border: 1px solid #d9d9d9;
 }
@@ -39,10 +49,17 @@
   border: 1px solid #11D577;
 }
 .date-item-active {
+  margin-right: 16px;
+  margin-left: 4px;
   color: #11D577;
   border-color: #11D577;
+  height: 40px;
 }
 .date-weekend {
   background-color: #f0faf0;
 }
-
+.date-item-left,
+.date-item-right {
+  animation: example;
+  display: none;
+}

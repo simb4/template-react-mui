@@ -26,3 +26,29 @@ export const getVisits = (data) => (dispatch, getState) => {
     onFailure: (response) => ({ errorMessage: response.message }),
   })
 }
+
+// classes CRUD
+export const createTraining = (data) => (dispatch, getState) => {
+  defaultAction(dispatch, getState, {
+    action: actionTypes.ACTION_CREATE_TRAINING,
+    apiCall: () => {
+      return fitnessApi.createTraining(data,
+        getState().user.token,
+        getState().fitness.fitness.id)
+    },
+    onSuccess: (response) => ({ training: response.training }),
+    onFailure: (response) => ({ errorMessage: response.message }),
+  })
+}
+export const getTrainings = (data) => (dispatch, getState) => {
+  defaultAction(dispatch, getState, {
+    action: actionTypes.ACTION_GET_TRAININGS,
+    apiCall: () => {
+      return fitnessApi.getTrainings(data,
+        getState().user.token,
+        getState().fitness.fitness.id)
+    },
+    onSuccess: (response) => ({ trainings: response.trainings }),
+    onFailure: (response) => ({ errorMessage: response.message }),
+  })
+}

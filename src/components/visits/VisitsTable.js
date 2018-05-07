@@ -43,10 +43,10 @@ const columns = [{
   key: 'trainingName',
 }, {
   title: 'Время',
-  dataIndex: 'training.start',
-  key: 'trainingStart',
-  render: (date) => (
-    <span>{moment(date).format('hh:mm')}</span>
+  dataIndex: 'training',
+  key: 'trainingTime',
+  render: (training) => (
+    <span>{moment(training.start).format('HH:mm')} - {moment(training.end).format('HH:mm')}</span>
   )
 }, {
   title: 'Статус',
@@ -61,18 +61,12 @@ const columns = [{
 }];
 
 class VisitsTable extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-
-    }
-  }
-
   render() {
     return (
       <Col span={24}>
         <Table
           pagination={false}
+          locale={{ emptyText: 'Пока никого...' }}
           loading={this.props.isLoading}
           dataSource={this.props.visits.map(v => ({
             ...v,

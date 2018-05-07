@@ -18769,12 +18769,75 @@ input:-webkit-autofill {
   background-color: white;
   padding: 16px;
   margin-top: 40px;
+  font-weight: 500;
+  color: rgba(0, 0, 0, 0.32);
+  display: flex;
+}
+.add-class-form .add-class-timepickers {
+  flex: 2;
+  min-width: 206px;
+}
+.add-class-form .ant-row-flex {
+  width: 100%;
+}
+.add-class-form .ant-select-selection__rendered {
+  line-height: 40px;
+}
+.add-class-form .ant-select-selection--single {
+  height: 40px;
+}
+.add-class-form .ant-input {
+  height: 40px;
+}
+.add-class-form .ant-input-number {
+  height: 40px;
+}
+.add-class-form .ant-input-number-input {
+  height: 36px;
+}
+.add-class-form .ant-btn {
+  max-height: 40px;
+  width: 40px;
+  padding: 0 8px;
+}
+.add-class-form-input {
+  display: flex;
+  flex-direction: column;
+  margin-left: 16px;
+}
+.add-class-form-input:first-child {
+  margin-left: 0;
+}
+.add-class-timepickers {
+  flex: 3;
+}
+.add-class-sports {
+  flex: 2;
+}
+.add-class-name {
+  flex: 4;
+}
+.add-class-count {
+  flex: 1;
+}
+.add-class-submit {
+  width: 40px;
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
+  margin-bottom: 1px;
+}
+.ant-time-picker-panel-select {
+  width: 50px;
+}
+.ant-time-picker-panel-input-wrap {
+  width: 100px;
 }
 .form-label {
   color: rgba(0, 0, 0, 0.32);
 }
 .time-picker {
-  color: rgba(0, 0, 0, 0.32);
+  height: 40px;
   display: inline-block;
   transition: 0.3s all;
   border: 1px solid #d9d9d9;
@@ -18787,12 +18850,13 @@ input:-webkit-autofill {
 }
 .time-picker .ant-time-picker-input {
   border: none;
+  height: 38px;
 }
 .time-picker .ant-time-picker:first-child .ant-time-picker-input {
   text-align: right;
 }
 .time-picker .ant-time-picker {
-  width: 112px;
+  width: 100px;
 }
 .time-picker .ant-time-picker-icon {
   display: none;

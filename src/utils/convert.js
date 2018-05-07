@@ -1,12 +1,13 @@
 /*eslint no-extend-native: 0 */
+
 Date.prototype.startOfDay = function() {
-	let start = new Date(this);
+	var start = new Date(this);
 	start.setHours(0,0,0,0);
 	return start;
 }
 
 Date.prototype.endOfDay = function() {
-	let end = new Date(this);
+	var end = new Date(this);
 	end.setHours(23,59,59,999);
 	return end;
 }
@@ -16,4 +17,19 @@ Date.prototype.addDays = function(days) {
   dat.setDate(dat.getDate() + days);
   return dat;
 }
+
+Date.prototype.startOfMonth = function() {
+	return new Date(this.getFullYear(), this.getMonth(), 1);
+}
+
+Date.prototype.endOfMonth = function() {
+	return new Date(this.getFullYear(), this.getMonth() + 1, 0);
+}
+
+Date.prototype.addMonths = function(months) {
+	var date = new Date(this.getFullYear(), this.getMonth(), this.getDate());
+	date.setMonth(date.getMonth() + months);
+	return date;
+}
+
 /* jshint ignore:end */

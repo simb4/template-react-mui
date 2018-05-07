@@ -5,7 +5,6 @@ import moment from 'moment';
 moment.locale('ru');
 import '../../utils/convert';
 
-const formatString = "dd, D MMMM"
 const today = new Date().startOfDay();
 
 const pop_front = ([x, ...rest]) => rest;
@@ -38,25 +37,25 @@ class DateSelect extends Component {
   onSelect(newCurrent) {
     this.setState({ current: newCurrent }, () => {
       if (!!this.props.onSelect) {
-        this.props.onSelect(today.addDays(newCurrent));  
+        this.props.onSelect(today[this.props.deltaFunc](newCurrent));  
       }
     });
   }
   itemRender(incr , cls='') {
-    let date = today.addDays(incr);
+    let date = today[this.props.deltaFunc](incr);
     let classNames = [];
     classNames.push('date-item');
     classNames.push(cls);
-    classNames.push(date.getDay()%6!==0
-      ? 'date-weekday'
-      : 'date-weekend'
+    classNames.push(date.getDay()%6===0 && this.props.deltaFunc === 'addDays'
+      ? 'date-weekend'
+      : 'date-weekday'
     );
     if (incr === this.state.current)
       classNames.push('date-item-active');
 
     return (
       <div key={incr} className={classNames.join(' ')} onClick={this.onSelect.bind(this, incr)}>
-        {moment(date).format(formatString)}
+        {moment(date).format(this.props.format)}
       </div>
     )
   }

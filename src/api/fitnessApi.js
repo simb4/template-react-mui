@@ -5,6 +5,7 @@ const getSportsUrl = SERVER_URL + "main/sport_types/";
 const getVisitsUrl = SERVER_URL + "moderators/visits/";
 const createClassUrl = SERVER_URL + "moderators/trainings/create/";
 const getClassesUrl = SERVER_URL + "moderators/trainings/";
+const getStatsUrl = SERVER_URL + "moderators/statistics/";
 
 
 export const getSports = (data, token) => (
@@ -21,4 +22,8 @@ export const createTraining = (data, token, fitness_id) => (
 
 export const getTrainings = (data, token, fitness_id) => (
   API.stdApiGET({ data, token, fitness_id, url: getClassesUrl })
+)
+
+export const getStats = (data, token, fitness_id) => (
+  API.stdApiGET({ data, token, fitness_id, url: getStatsUrl })
 )

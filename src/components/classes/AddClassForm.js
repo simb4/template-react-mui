@@ -7,19 +7,21 @@ import '../../utils/convert';
 
 const format = "HH:mm";
 
+const emptyData = {
+  timestamp_start: null,
+  timestamp_end: null,
+  sport_type: null,
+  name: null,
+  max_users: 0,
+}
+
 class AddClassForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
       openStart: false,
       openEnd: false,
-      data: {
-        timestamp_start: null,
-        timestamp_end: null,
-        sport_type: null,
-        name: null,
-        max_users: 12,
-      },
+      data: { ...emptyData },
     }
   }
   componentDidMount() {
@@ -28,7 +30,9 @@ class AddClassForm extends Component {
   componentWillUnmount() {
     window.removeEventListener('keypress', this.handleCloseTime);
   }
-
+  clearFields() {
+    this.setState({ data: { ...emptyData } })
+  }
   onOpenChangeStart = (openStart) => this.setState({ openStart })
   onOpenChangeEnd = (openEnd) => this.setState({ openEnd })
 
@@ -77,6 +81,7 @@ class AddClassForm extends Component {
       description: this.state.data.name,
       coach: "1",
     });
+    this.clearFields();
   }
   render() {
     let isDisabled = !this.state.data.name
@@ -150,7 +155,7 @@ class AddClassForm extends Component {
               <span className="form-label"> Мест для 1Fit </span>
               <InputNumber 
                 min={1} max={30}
-                defaultValue={12}
+                defaultValue={0}
                 onChange={this.onChangeCount}/>
             </div>
             {/* Submit */}

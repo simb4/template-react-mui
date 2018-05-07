@@ -52,3 +52,17 @@ export const getTrainings = (data) => (dispatch, getState) => {
     onFailure: (response) => ({ errorMessage: response.message }),
   })
 }
+
+// getting stats by month
+export const getStats = (data) => (dispatch, getState) => {
+  defaultAction(dispatch, getState, {
+    action: actionTypes.ACTION_GET_STATS,
+    apiCall: () => {
+      return fitnessApi.getStats(data,
+        getState().user.token,
+        getState().fitness.fitness.id)
+    },
+    onSuccess: (response) => ({ stats: response.stats }),
+    onFailure: (response) => ({ errorMessage: response.message }),
+  })
+}

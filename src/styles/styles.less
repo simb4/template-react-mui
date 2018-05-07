@@ -44,6 +44,16 @@ input:-webkit-autofill { -webkit-box-shadow: 0 0 0px 1000px white inset; }
   background-color: white;
 }
 
+.stat-container {
+  .ant-divider { background-color: @normal-color; }
+  .stat-number {
+    margin-top: 48px;
+    color: rgba(0,0,0,0.64);
+    .number { font-size: 32px; line-height: 38px; color: black; }
+    .title { font-size: 16px; line-height: 19px; }
+  }
+}
+
 @media only screen and (max-width: 768px) {
   .ant-layout-header {
     padding: 0 32px;

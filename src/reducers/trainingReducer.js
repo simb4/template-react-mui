@@ -45,9 +45,19 @@ const trainingIsLoading = (state = false, action) => {
     }
 }
 
+const stats = (state = {}, action) => {
+    switch (action.type) {
+        case actionTypes.ACTION_GET_STATS.success:
+            return action.stats;
+        default:
+            return state;
+    }
+}
+
 const trainingReducer = combineReducers({
     trainings,
     trainingIsLoading,
+    stats,
 });
 
 export default trainingReducer;

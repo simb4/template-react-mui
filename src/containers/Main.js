@@ -7,6 +7,7 @@ import Header from '../components/header/Header';
 
 import VisitsPage from './pages/VisitsPage';
 import SchedulePage from './pages/SchedulePage';
+import StatsPage from './pages/StatsPage';
 import NoMatch from './NoMatch';
 
 import { Layout } from 'antd';
@@ -31,7 +32,7 @@ class _Main extends Component {
               <UserRoute exact path="/" component={HelloWorld} {...isLoggedIn}/>
               <UserRoute exact path="/visits" component={VisitsPage} {...isLoggedIn}/>
               <UserRoute exact path="/classes" component={SchedulePage} {...isLoggedIn}/>
-              <UserRoute exact path="/stats" component={HelloWorld} {...isLoggedIn}/>
+              <UserRoute exact path="/stats" component={StatsPage} {...isLoggedIn}/>
               <Route name="not-found" component={NoMatch} />
             </Switch>
           </Layout.Content>

@@ -56,3 +56,8 @@ export const ACTION_GET_TRAININGS = {
 	failed: "GET_TRAININGS_FAILED",
 }
 
+export const ACTION_GET_STATS = {
+	started: "GET_STATS_STARTED",
+	success: "GET_STATS_SUCCESS",
+	failed: "GET_STATS_FAILED",
+}

@@ -34,6 +34,8 @@ class _SchedulePage extends Component {
       <div>
         <Row>
           <DateSelect
+            format="dd, D MMMM"
+            deltaFunc="addDays"
             date={this.state.date}
             onSelect={this.onSelectDate}/>
         </Row>
@@ -44,10 +46,9 @@ class _SchedulePage extends Component {
             onSubmit={this.props.onCreateTraining}/>
         </Row>
         <Row>
-          {<TrainingsList
+          <TrainingsList
             isLoading={this.props.isLoading}
             trainings={this.props.trainings} />
-          }
         </Row>
       </div>
     )

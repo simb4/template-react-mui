@@ -21,8 +21,8 @@ class _StatsPage extends Component {
   }
   getStats = () => {
     this.props.onGetStats({
-      timestamp_start: this.state.date.startOfMonth(),
-      timestamp_end: this.state.date.endOfMonth(),
+      timestamp_start: this.state.date.startOfMonth().toISOString(),
+      timestamp_end: this.state.date.endOfMonth().toISOString(),
     });
   }
   renderNumber = (number, title) => (
@@ -45,7 +45,7 @@ class _StatsPage extends Component {
           {this.renderNumber(this.props.stats.trainings, 'Классов')}
           {this.renderNumber(this.props.stats.visits, 'Посещений')}
           {this.renderNumber(this.props.stats.users, 'Атлетов')}
-          {this.renderNumber(this.props.stats.money+' ₸', 'Заработано')}
+          {this.renderNumber(this.props.stats.money +' ₸', 'Заработано')}
         </Row>
         <Divider />
       </div>

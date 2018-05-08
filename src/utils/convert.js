@@ -23,7 +23,7 @@ Date.prototype.startOfMonth = function() {
 }
 
 Date.prototype.endOfMonth = function() {
-	return new Date(this.getFullYear(), this.getMonth() + 1, 0);
+	return new Date(this.getFullYear(), this.getMonth() + 1, 0, 23, 59, 59);
 }
 
 Date.prototype.addMonths = function(months) {

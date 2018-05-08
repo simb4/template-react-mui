@@ -25,8 +25,8 @@ class _SchedulePage extends Component {
   }
   getTrainings = () => {
     this.props.onGetTrainings({
-      timestamp_start: this.state.date.startOfDay(),
-      timestamp_end: this.state.date.endOfDay(),
+      timestamp_start: this.state.date.startOfDay().toISOString(),
+      timestamp_end: this.state.date.endOfDay().toISOString(),
     });
   }
   render() {
